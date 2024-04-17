@@ -1,0 +1,35 @@
+^ContentPage {
+    background: #212121;
+    
+}
+
+Button{
+    background:mediumpurple;
+    color:white;
+    font-size:medium;
+
+}
+
+^Shell {
+    -maui-shell-background: mediumpurple;
+    -maui_shell-title: white;
+}
+
+.usun{
+    background:transparent;
+    color:red;
+    width:50;
+}
+
+#Info{
+    margin-left:50;
+    margin-right:100;
+}
+
+Picker{
+    width:100;
+}
+
+Grid>Label{
+    color:wheat;
+}

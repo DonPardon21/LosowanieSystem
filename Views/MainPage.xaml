@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LosowanieSystem.Views.MainPage"
+             Title="System Losowania">
+ 
+    <Grid RowDefinitions="100,*,*">
+        <Grid Grid.Row="0"
+          ColumnDefinitions="*,*,*"
+          Margin="20">
+            <Picker ItemsSource="{Binding classlist}"
+            Title="Wybierz klase"
+            HorizontalOptions="Start"
+            Grid.Column="0"
+            SelectedIndexChanged="Picker_SelectedIndexChanged"/>
+            <Editor Placeholder="Nowa klasa" Grid.Column="1" x:Name="newClassEditor"/>
+            <Button Text="Add" Grid.Column="2" Clicked="Button_NewClass"/>
+        </Grid>
+
+        <ScrollView HeightRequest="300"
+                Grid.Row="1">
+            <ListView ItemsSource="{Binding selectedClassStudents}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid StyleId="Info" ColumnDefinitions="*,*,*,*">
+                                <Label Text="{Binding Name}" Grid.Column="0" />
+                                <Label Text="{Binding Surname}" Grid.Column="1" />
+                                <Label Text="{Binding Number}" Grid.Column="2" />
+                                <Button Text="X" 
+                                       StyleClass="usun"
+                                    Clicked="Button_Delete"  
+                                    Grid.Column="3"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+        <Grid RowDefinitions="*,*,*" IsVisible="false" x:Name="gridSelecetedClassEdit" Grid.Row="2">
+            <Label Text="" x:Name="wylosowanyUczen" Grid.Row="0"/>
+            <Button Text="Wylosuj ucznia" Grid.Row="1" Clicked="Button_Random"/>
+
+            <Grid Grid.Row="2"
+              ColumnDefinitions="*,*,*">
+                <Editor Placeholder="Imie:" x:Name="editorName" Grid.Column="0"/>
+                <Editor Placeholder="Nazwisko:" x:Name="editorSurename" Grid.Column="1"/>
+                <Button Text="Dodaj ucznia" Grid.Column="2" Clicked="Button_ADD"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</ContentPage>

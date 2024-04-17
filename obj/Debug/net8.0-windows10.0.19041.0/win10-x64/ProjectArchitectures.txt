@@ -1,0 +1,1 @@
+C:\Users\linet\Documents\c#practice\MAUI\ShoppingList\LosowanieSystem\LosowanieSystem.csproj;x64
